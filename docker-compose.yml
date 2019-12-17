@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  assetfinder:
+    build: assetfinder
+    volumes:
+      - input:/tools/input:rw
+       
+  amass:
+    build: amass
+    volumes:
+      - input:/tools/input:rw
+    
+  subfinder:
+    image: 'ice3man/subfinder'
+    volumes:
+      - input:/tools/input:rw
+    
+  findomain:
+    build: findomain
+    volumes:
+      - input:/tools/input:rw
+volumes:
+  input:
+    external: true
