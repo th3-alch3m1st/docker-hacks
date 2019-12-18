@@ -5,7 +5,6 @@ ENV GO111MODULE on
 WORKDIR /go/src/github.com/OWASP/Amass
 RUN go install ./...
 
-#Anything add/installed from above will get lost
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 RUN apk add bash

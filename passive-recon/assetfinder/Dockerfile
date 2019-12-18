@@ -1,4 +1,6 @@
-FROM golang:latest
+FROM golang:1.13-alpine3.10 as build
+RUN apk add --no-cache --upgrade git openssh-client ca-certificates
+RUN apk add bash
 
 RUN go get -u github.com/tomnomnom/assetfinder
 

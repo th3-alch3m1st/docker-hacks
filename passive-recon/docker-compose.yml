@@ -13,10 +13,11 @@ services:
       - "./input:/tools/input"
       - "./output:/tools/output"
     
-#  subfinder:
-#    image: 'ice3man/subfinder'
-#    volumes:
-#      - ./input:/tools/input
+  subfinder:
+    build: subfinder
+    volumes:
+      - "./input:/tools/input"
+      - "./output:/tools/output"
     
   findomain:
     build: findomain
