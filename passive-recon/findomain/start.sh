@@ -1,7 +1,7 @@
 #!/bin/bash
 
 while read -r line; do
-	if [ ! -d /tools/output/$line ]; then
+    if [ ! -d /tools/output/$line ]; then
         mkdir -p /tools/output/$line
     fi
     /tools/findomain-linux -t $line -o

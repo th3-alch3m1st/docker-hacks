@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+  dnsgen:
+    build: dnsgen
+    volumes:
+      - "./input:/tools/input"
+      - "./output:/tools/output"
+

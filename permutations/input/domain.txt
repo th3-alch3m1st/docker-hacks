@@ -1,0 +1,1 @@
+partner-mail.test.dev.yahoo.com
