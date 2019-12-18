@@ -10,4 +10,7 @@ RUN apk --no-cache add ca-certificates
 COPY --from=build /go/bin/amass /bin/amass
 COPY --from=build /go/src/github.com/OWASP/Amass/examples/wordlists/ /wordlists/
 ENV HOME /
-ENTRYPOINT ["/bin/amass"]
+
+RUN mkdir -p /tools/input
+RUN mkdir -p /tool/output
+ENTRYPOINT ["cp", "/tools/input/domain.txt", "/tools/output/amass.txt"]

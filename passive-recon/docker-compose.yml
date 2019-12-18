@@ -4,22 +4,23 @@ services:
   assetfinder:
     build: assetfinder
     volumes:
-      - input:/tools/input:rw
+      - ./input:/tools/input
+      - ./output:/tools/output:rw
        
   amass:
     build: amass
     volumes:
-      - input:/tools/input:rw
+      - ./input:/tools/input
+      - ./output:/tools/output
     
-  subfinder:
-    image: 'ice3man/subfinder'
-    volumes:
-      - input:/tools/input:rw
+#  subfinder:
+#    image: 'ice3man/subfinder'
+#    volumes:
+#      - ./input:/tools/input
     
   findomain:
     build: findomain
     volumes:
-      - input:/tools/input:rw
-volumes:
-  input:
-    external: true
+      - ./input:/tools/input
+      - ./output:/tools/output
+
