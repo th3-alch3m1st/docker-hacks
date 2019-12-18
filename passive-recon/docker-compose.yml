@@ -20,8 +20,8 @@ services:
       - "./output:/tools/output"
     
   findomain:
-    build: findomain
-    volumes:
+   build: findomain
+   volumes:
       - "./input:/tools/input"
       - "./output:/tools/output"
 
