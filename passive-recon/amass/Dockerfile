@@ -5,12 +5,16 @@ ENV GO111MODULE on
 WORKDIR /go/src/github.com/OWASP/Amass
 RUN go install ./...
 
+#Anything add/installed from above will get lost
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
+RUN apk add bash
 COPY --from=build /go/bin/amass /bin/amass
 COPY --from=build /go/src/github.com/OWASP/Amass/examples/wordlists/ /wordlists/
 ENV HOME /
 
 RUN mkdir -p /tools/input
-RUN mkdir -p /tool/output
-ENTRYPOINT ["cp", "/tools/input/domain.txt", "/tools/output/amass.txt"]
+RUN mkdir -p /tools/output
+ADD ./start.sh /tools/
+RUN chmod +x /tools/start.sh
+ENTRYPOINT ["/tools/start.sh"]

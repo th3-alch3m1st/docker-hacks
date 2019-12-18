@@ -4,6 +4,9 @@ RUN go get -u github.com/tomnomnom/assetfinder
 
 WORKDIR /tools
 RUN mkdir -p /tools/input
-RUN mkdir -p /tool/output
+RUN mkdir -p /tools/output
 
-ENTRYPOINT ["cp", "/tools/input/domain.txt", "/tools/output/assetfinder.txt"]
+ADD ./start.sh /tools/
+RUN chmod +x /tools/start.sh
+
+ENTRYPOINT ["/tools/start.sh"]
