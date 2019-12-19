@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  massdns:
+    build: massdns
+    volumes:
+      - "./input:/tools/input"
+      - "./output:/tools/output"
+
+  resolvers:
+   build: resolvers
+   volumes:
+     - "./input:/tools/input"
+     - "./output:/tools/output"
+
