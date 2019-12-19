@@ -1,4 +1,5 @@
 FROM python:3-alpine
+LABEL maintainer "th3_alchem1st"
 
 WORKDIR /tools
 
